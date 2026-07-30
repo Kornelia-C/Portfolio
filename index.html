@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kornelia Ciszak – Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Kornelia Ciszak</a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav id="primary-nav" class="nav">
+        <ul>
+          <!-- <li><a href="#home">Home</a></li> -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="assets/resume.pdf" download>Resume</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="home" class="hero container">
+      <img class="avatar preview-trigger" src="assets/images/profile.jpg" alt="Profile photo of Kornelia">
+      <div class="hero-text">
+        <h1>Hi, my name is Nel</h1>
+        <p class="lead">Active Directory and Remote Access Administrator with French</p>
+              <p class="language-skills">
+        <span class="language-chip"><img class="flag" src="assets/flags/pl.svg" alt="Polish flag"> PL</span>
+        <span class="language-chip"><img class="flag" src="assets/flags/us.svg" alt="UK flag"> EN</span>
+        <span class="language-chip"><img class="flag" src="assets/flags/fr.svg" alt="French flag"> FR</span>
+      </p>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About</h2>
+      <p>IT professional with over six years of experience, specializing in Python and PowerShell tools development, as well as in Windows system administration.</p>
+    </section>
+
+    <section id="projects" class="container projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <!-- Repeat project cards and replace content/images -->
+        <article class="project-card">
+          <div class="card-body">
+            <h3>1. Automated Active Directory Account Expiration Email Notifications</h3>
+            <p>Built with PowerShell and the ActiveDirectory module,
+              this script automates notification delivery for accounts
+              that are about to expire. It connects to several AD domains,
+              calculates how many days remain until each account expires,
+              and sends HTML email reminders on selected days before expiry.
+              The solution supports a safe testing mode, manager CC routing,
+              priority escalation for accounts with one week or less remaining,
+              and CSV logging for auditability.</p>
+          </div>
+          <p class="card-actions">
+            <a href="#" class="preview-trigger" data-src="assets/template_.html">Mail notification preview</a>
+            · <a href="#" class="code-trigger" data-src="assets/template_.html">HTML code</a>
+            · <a href="https://github.com/Kornelia-C/PowerShell/tree/main/Send-AccountExpirationNotification" class="repo-link" target="_blank" rel="noreferrer">GitHub repository</a>
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="card-body">
+            <h3>2. Automated Remote Desktop Services Host Monitoring</h3>
+            <p>Automated PowerShell script for monitoring Remote Desktop Services
+              health across multiple RDS hosts. It collects system metrics,
+              evaluates host availability, and generates a structured HTML report
+              for operational visibility and quick issue detection.</p>
+          </div>
+          <p class="card-actions">
+            <a href="#" class="preview-trigger" data-src="assets/RDS0.html">Report preview [OK]</a>
+            · <a href="#" class="preview-trigger" data-src="assets/RDS1.html">Report preview [KO]</a>
+            · <a href="https://github.com/Kornelia-C/PowerShell/tree/main/Get-RDSOverview" class="repo-link" target="_blank" rel="noreferrer">GitHub repository</a>
+          </p>
+        </article>
+
+                <article class="project-card">
+          <div class="card-body">
+            <h3>3. Automated Active Directory Accounts Desactivation</h3>
+            <p>Automated PowerShell script for deactivating Active Directory
+              standard user and admin accounts based on specific criteria (selected AD attributs values).
+              A separate email containing a .csv report for each domain processed
+              by the script is then sent to a selected list of recipients,
+              providing them with lists of deactivated accounts.
+
+
+            </p>
+          </div>
+          <p class="card-actions">
+            <a href="https://github.com/Kornelia-C/PowerShell/tree/main/Disable-InactiveAccounts" class="repo-link" target="_blank" rel="noreferrer">GitHub repository</a>
+          </p>
+        </article>
+        
+                <article class="project-card">
+          <div class="card-body">
+            <h3>4. RDS KO Alert Relay </h3>
+            <p>Lightweight alert relay that forwards critical ("KO") RDS reports
+              from Outlook into a Microsoft Teams channel. The RDS report generator
+              sends email reports with a distinctive subject prefix for KO events;
+              a Power Automate flow watches the mailbox for messages from a specific
+              sender whose subject matches that prefix, extracts the message body
+              and posts a formatted alert to a designated Teams channel visible
+              to all those who could need that information.
+          </p>
+          </div>
+          <p class="card-actions">
+            <a href="#" class="preview-trigger" data-src="assets/images/PowerAutomate.jpg">PowerAutomate workflow preview</a>
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <p>If you'd like to reach out, email me at <a href="mailto:kornelia.ciszak@gmail.com">kornelia.ciszak@gmail.com</a> or connect on social media.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/Kornelia-C" target="_blank" rel="noreferrer">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/kornelia-ciszak" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Kornelia Ciszak. Built with HTML, CSS & JavaScript.</p>
+    </div>
+  </footer>
+
+  <div id="image-modal" class="image-modal" aria-hidden="true">
+    <button class="image-modal-close" type="button" aria-label="Close image preview">×</button>
+    <div id="image-modal-content" class="image-modal-content"></div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

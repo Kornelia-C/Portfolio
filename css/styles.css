@@ -8,9 +8,42 @@
 }
 *{box-sizing:border-box}
 
+.nav a.active {
+  background: #eff6ff;
+  color: #0366d6;
+  border-radius: 6px;
+}
+
+.nav a {
+  position: relative;
+  padding: .4rem .7rem;
+  border-radius: 6px;
+  transition: all .2s ease;
+}
+
+.nav a:hover {
+  background: #eff6ff;
+  color: #0366d6;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #0366d6;
+  transition: width .3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
 section:target h1,
 section:target h2 {
-  animation: header-highlight 3s ease .5s;
+  animation: header-highlight 3s ease 0.8s;
 }
 
 @keyframes header-highlight {
@@ -20,7 +53,7 @@ section:target h2 {
   }
   30% {
     color: #0366d6;
-    background: rgba(219, 234, 254, 0.8);
+    background: rgba(219, 234, 254, 1);
   }
   100% {
     color: inherit;
@@ -66,7 +99,7 @@ from {
   }
 }
 .hero{
-  animation: fade-up 0.8s ease;
+  animation: fade-up 1s ease;
   display:flex;
   gap:2rem;
   align-items:center;
@@ -85,8 +118,42 @@ from {
   box-shadow: 0 10px 30px rgba(3,102,214,.2);
 }
 
-.hero-text h1{margin:0 0 .5rem 0}
-.lead{color:var(--muted);margin-top:0}
+.hero-text h1{
+  margin:0 0 .5rem 0
+  }
+
+.lead{
+  color:var(--muted);
+  margin-top:0}
+
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0;
+}
+
+.skill-badge {
+  background: #eff6ff;
+  color: #0366d6;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.project-subtitle {
+  margin: -.25rem 0 .75rem 0;
+  color: #6b7280;
+  font-size: .95rem;
+}
+
+.projects .skill-badge {
+  font-size: .8rem;
+  padding: .25rem .6rem;
+}
+
 .language-skills{margin-top:1rem;font-weight:600;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;color:var(--text);font-size:1rem}
 .language-skills span{display:inline-flex;align-items:center;gap:.35rem;font-size:1rem}
 .language-chip{
@@ -209,17 +276,17 @@ p{
 }
 
 .about{
-  animation: fade-up 0.8s ease;
+  animation: fade-up 1s ease;
   padding:0;
 }
 
 .projects{
-  animation: fade-up 0.8s ease;
+  animation: fade-up 1s ease;
   padding:0;
 
 }
 .contact{
-  animation: fade-up 0.8s ease;
+  animation: fade-up 1s ease;
   padding:0;
   margin-bottom: 2rem;
 }
@@ -243,15 +310,15 @@ box-shadow:0 15px 35px rgba(0,0,0,.1);
 .card-body{padding:.75rem}
 .card-actions a{
   display: inline-block;
-  padding: 0.5rem 0.8rem;
+  padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   border-radius: 6px;
   background: #eff6ff;
   color: #0366d6;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: .95rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all .2s ease;
 }
 
 .card-actions a.repo-link {
@@ -319,7 +386,7 @@ body.modal-open{overflow:hidden}
 }
   .project-grid{grid-template-columns:1fr}
   .hero{
-    animation: fade-up 0.8s ease;
+    animation: fade-up 1s ease;
     flex-direction:column;
     text-align:center;
     align-items:center;}

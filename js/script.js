@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
         nav.setAttribute('aria-expanded', 'false');
       }
     });
-
+    
     nav.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){
         if (window.innerWidth <= 800) {

@@ -55,7 +55,19 @@ html,body{
 .nav a{color:var(--text);text-decoration:none}
 .nav-toggle{display:none;background:transparent;border:0;font-size:1.25rem}
 .site-header{border-bottom:1px solid #eef2f7}
-.hero{display:flex;
+@keyframes fade-up {
+from {
+  opacity: 0;
+  transform: translateY(5px);
+  }
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
+}
+.hero{
+  animation: fade-up 0.8s ease;
+  display:flex;
   gap:2rem;
   align-items:center;
   padding:2rem 0 1rem;}
@@ -64,14 +76,71 @@ html,body{
   height:180px;
   border-radius:9999px;
   object-fit:cover;
-  cursor:pointer}
+  cursor:pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(3,102,214,.2);
+}
+
 .hero-text h1{margin:0 0 .5rem 0}
 .lead{color:var(--muted);margin-top:0}
 .language-skills{margin-top:1rem;font-weight:600;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;color:var(--text);font-size:1rem}
 .language-skills span{display:inline-flex;align-items:center;gap:.35rem;font-size:1rem}
-.language-chip{background:#eff6ff;color:#0f172a;border:1px solid #c7d2fe;border-radius:999px;padding:.45rem .7rem;font-weight:700;box-shadow:0 2px 8px rgba(59,130,246,.12);display:inline-flex;align-items:center;gap:.5rem}
-.language-chip img.flag{width:20px;height:14px;object-fit:cover;border-radius:2px;display:inline-block}
-.btn{display:inline-block;padding:.5rem .75rem;background:var(--accent);color:#fff;border-radius:6px;text-decoration:none}
+.language-chip{
+  position: relative;
+  transition: transform .2s ease;
+  background:#eff6ff;
+  color:#0f172a;
+  border:1px solid #c7d2fe;
+  border-radius:999px;
+  padding:.45rem .7rem;font-weight:700;
+  box-shadow:0 2px 8px rgba(59,130,246,.12);
+  display:inline-flex;
+  align-items:center;gap:.5rem}
+
+.language-chip:hover{
+  transform: translateY(-2px);
+}
+
+.language-chip img.flag{
+  width:20px;
+  height:14px;
+  object-fit:cover;
+  border-radius:2px;
+  display:inline-block}
+
+.tooltip {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+
+  background: #0f172a;
+  color: white;
+  padding: .4rem .7rem;
+  border-radius: 6px;
+  font-size: .85rem;
+  white-space: nowrap;
+
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+
+.language-chip:hover .tooltip {
+  opacity: 1;
+}
+
+.btn{
+  display:inline-block;
+  padding:.5rem .75rem;
+  background:var(--accent);
+  color:#fff;border-radius:6px;
+  text-decoration:none}
+
 .social-links {
   display: flex;
   gap: .75rem;
@@ -80,9 +149,11 @@ html,body{
   margin: 0;
   flex-wrap: wrap;
 }
+
 .social-links li {
   margin: 0;
 }
+
 .social-links a {
   display: inline-block;
   padding: .5rem .8rem;
@@ -90,46 +161,69 @@ html,body{
   text-decoration: none;
   transition: all .2s ease;
 }
+
 .social-links .repo-link {
   background: #24292e;
   color: white;
 }
+
 .social-links .linkedin-link {
   background: #0a66c2;
   color: white;
 }
+
 .social-links a:hover {
   transform: translateY(-2px);
 }
+
 .mail-link {
   background: #d93025;
   color: white;
 }
+
 .repo-link {
   background: #24292e;
   color: white;
 }
+
 .linkedin-link {
   background: #0a66c2;
   color: white;
 }
+
 p{
   line-height: 1.6;
   color: #374151;
-  }
+}
+
 .about p{
-  padding:0.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
+
+.about p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
 .about{
+  animation: fade-up 0.8s ease;
   padding:0;
 }
+
 .projects{
+  animation: fade-up 0.8s ease;
   padding:0;
-  }
+
+}
 .contact{
+  animation: fade-up 0.8s ease;
   padding:0;
   margin-bottom: 2rem;
-  }
+}
+
 .project-grid{display:grid;grid-template-columns:1fr;gap:1rem}
 .project-card{
   background:#fff;
@@ -143,6 +237,7 @@ p{
 transform:translateY(-5px);
 box-shadow:0 15px 35px rgba(0,0,0,.1);
 } 
+
 .project-card img, .project-card iframe{width:100%;min-height:260px;cursor:pointer;display:block;border:0}
 .project-preview-frame{display:none;background:#fff;height:320px;}
 .card-body{padding:.75rem}
@@ -158,23 +253,28 @@ box-shadow:0 15px 35px rgba(0,0,0,.1);
   font-weight: 500;
   transition: all 0.2s ease;
 }
+
 .card-actions a.repo-link {
   background: #24292e !important;
   color: white !important;
 }
+
 .card-actions a.repo-link:hover {
   background: #1b1f23 !important;
   transform: translateY(-2px);
 }
+
 .card-actions {
   padding: 0 0.75rem 0.75rem 0.75rem;
   margin-top: 1.5rem;
 }
+
 .card-actions a:hover {
   transform: translateY(-2px);
   background: #dbeafe;
   box-shadow: 0 4px 12px rgba(3, 102, 214, 0.15);
 }
+
 .site-footer{border-top:1px solid #eef2f7;padding:1rem 0;color:var(--muted)}
 .social-links{list-style:none;padding:0;display:flex;gap:.5rem}
 .image-modal{position:fixed;inset:0;background:rgba(2,8,23,.85);display:none;align-items:center;justify-content:center;padding:1.5rem;z-index:1000}
@@ -187,7 +287,15 @@ box-shadow:0 15px 35px rgba(0,0,0,.1);
   border:0;border-radius:12px;
   box-shadow:0 20px 45px rgba(0,0,0,.35);
   background:#fff}
-.image-modal-content pre{width:min(90vw, 900px);max-height:min(80vh, 700px);overflow:auto;background:#0f1720;color:#f8fafc;padding:1rem;border-radius:12px;box-shadow:0 20px 45px rgba(0,0,0,.35);font-family:SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;font-size:.9rem;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;}
+.image-modal-content pre{
+  width:min(90vw, 900px);
+  max-height:min(80vh, 700px);
+  overflow:auto;background:#0f1720;
+  color:#f8fafc;padding:1rem;border-radius:12px;
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
+  font-family:SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;font-size:.9rem;
+  line-height:1.5;white-space:pre-wrap;
+  word-wrap:break-word;}
 .image-modal-close{position:absolute;top:1rem;right:1rem;border:0;background:#fff;color:#111;border-radius:999px;width:2.5rem;height:2.5rem;font-size:1.5rem;cursor:pointer}
 body.modal-open{overflow:hidden}
 
@@ -211,6 +319,7 @@ body.modal-open{overflow:hidden}
 }
   .project-grid{grid-template-columns:1fr}
   .hero{
+    animation: fade-up 0.8s ease;
     flex-direction:column;
     text-align:center;
     align-items:center;}

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function(){
       modalContent.innerHTML = '';
 
       const src = this.dataset.src || this.src;
-      // decide whether to show an iframe (html) or an image
+      
       if (this.dataset.type === 'iframe' || (typeof src === 'string' && src.match(/\.html?$|^data:text\/html/))) {
         const iframe = document.createElement('iframe');
         iframe.src = src;
@@ -128,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // update year in footer
   const yearEl = document.getElementById('year');
   if(yearEl) yearEl.textContent = new Date().getFullYear();
 });
